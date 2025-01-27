@@ -9,8 +9,8 @@ import (
 
 func Execute() {
 
-	maxconn := flag.Uint("maxconn", 2000, "Maximum number of connections for the rate limiter to handle")
-	port := flag.Uint("port", 8080, "The port to run the rate limiting reverse proxy on")
+	maxconn := flag.Uint64("maxconn", 2000, "Maximum number of connections for the rate limiter to handle")
+	port := flag.Uint64("port", 8080, "The port to run the rate limiting reverse proxy on")
 	address := flag.String("address", "", "Address to the server the traffic is being passed to")
 
 	flag.Parse()
@@ -28,6 +28,6 @@ func Execute() {
 
 	}
 
-	proxy.Serve(*port, socketAddressUrl)
+	proxy.Serve(*port, *maxconn, socketAddressUrl)
 
 }

@@ -1,7 +1,7 @@
-package dboss
+package main
 
 import (
-	"internal/cmd"
+	"dboss/internal/cmd"
 )
 
 func main() {
